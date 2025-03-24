@@ -1,4 +1,3 @@
-// theme.ts
 import { createTheme } from '@mui/material/styles';
 
 export const lightTheme = createTheme({
@@ -8,7 +7,7 @@ export const lightTheme = createTheme({
       main: '#1976d2',
     },
     secondary: {
-      main: '#ff4081',
+      main: '#000',
     },
     background: {
       default: '#ffffff',

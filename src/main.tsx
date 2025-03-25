@@ -1,20 +1,30 @@
-import './index.css';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router';
 
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
+import { Layout } from './shared/layouts/dashboard';
+import { CompaniesPage } from './shared/pages';
 
-import { Sidebar } from './components/sidebar/sidebar.component';
-import { ThemeButton } from './shared/theme-button';
-import { ThemeProvider } from './theme/ThemeProvider';
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <Router>
-      <ThemeProvider>
-        <Sidebar />
-        <ThemeButton />
-      </ThemeProvider>
-    </Router>
-  </StrictMode>,
+const router = createBrowserRouter([
+  {
+    Component: App,
+    children: [
+      {
+        path: '/',
+        Component: Layout,
+        children: [
+          {
+            path: '*',
+            Component: CompaniesPage,
+          },
+        ],
+      },
+    ],
+  },
+]);
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
 );

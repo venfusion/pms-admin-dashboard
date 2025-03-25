@@ -1,7 +1,7 @@
 import { Router } from '@toolpad/core/AppProvider';
 import React from 'react';
 
-export function useRouter(initialPath: string): Router {
+export function useSidebarRouter(initialPath: string): Router {
   const [pathname, setPathname] = React.useState(initialPath);
 
   const router = React.useMemo(() => {

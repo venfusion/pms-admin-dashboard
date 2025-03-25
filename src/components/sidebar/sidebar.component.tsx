@@ -3,12 +3,12 @@ import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { PageContainer } from '@toolpad/core/PageContainer';
 
-import { useRouter } from '../../shared/hooks';
+import { useSidebarRouter } from './hooks';
 import { BRANDING, NAVIGATION } from './sidebar.constants';
 import { sideBarDemoTheme, Skeleton } from './sidebar.styles';
 
 export function Sidebar() {
-  const router = useRouter('/dashboard');
+  const router = useSidebarRouter('/dashboard');
 
   return (
     <AppProvider

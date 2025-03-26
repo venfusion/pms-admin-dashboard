@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router';
 
-import App from '../../App';
-import { Layout } from '../layouts/dashboard';
-import { CompaniesPage } from '../pages';
+import App from '../App';
+import { CompaniesPage } from '../modules/companies';
+import { Layout } from '../shared/layouts/dashboard';
 
 export const router = createBrowserRouter([
   {

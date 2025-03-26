@@ -1,11 +1,22 @@
 import ApartmentIcon from '@mui/icons-material/Apartment';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import HomeIcon from '@mui/icons-material/Home';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { Box, Card, CardContent, Divider, Grid2 as Grid, Paper, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Divider,
+  Grid2 as Grid,
+  Paper,
+  Typography,
+} from '@mui/material';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import { useParams } from 'react-router';
 
-export const AddressDetailsPage = () => {
+export const AddressDetails = () => {
   const { id } = useParams();
 
   console.log(id);
@@ -36,19 +47,32 @@ export const AddressDetailsPage = () => {
 
   return (
     <Box sx={{ p: 0 }}>
-      <Paper elevation={0} sx={{ mb: 3 }}>
-        <Typography variant='h4' component='h1'>
-          {propertyData.name}
-        </Typography>
-        <Typography
-          variant='subtitle1'
-          color='text.secondary'
-          sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
-        >
-          <LocationOnIcon fontSize='small' />
-          {`${propertyData.address.number} ${propertyData.address.street}, ${propertyData.address.city}, ${propertyData.address.state} ${propertyData.address.zipCode}`}
-        </Typography>
-      </Paper>
+      <Box display='flex' alignItems='center' gap={2} justifyContent='space-between'>
+        <Paper elevation={0} sx={{ mb: 3 }}>
+          <Typography variant='h4' component='h1'>
+            {propertyData.name}
+          </Typography>
+          <Typography
+            variant='subtitle1'
+            color='text.secondary'
+            sx={{ display: 'flex', alignItems: 'center', gap: 1 }}
+          >
+            <LocationOnIcon fontSize='small' />
+            {`${propertyData.address.number} ${propertyData.address.street}, ${propertyData.address.city}, ${propertyData.address.state} ${propertyData.address.zipCode}`}
+          </Typography>
+        </Paper>
+
+        <Box display='flex' alignItems='center' gap={1}>
+          <Button variant='contained' color='primary' sx={{ gap: 1 }}>
+            <EditIcon />
+            Edit
+          </Button>
+          <Button variant='contained' color='error' sx={{ gap: 1 }}>
+            <DeleteIcon />
+            Delete
+          </Button>
+        </Box>
+      </Box>
 
       <Grid container spacing={3}>
         <Grid size={6}>

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
 import App from '../App';
-import { AddressDetailsPage } from '../modules/address/address-details';
+import { AddressDetails } from '../modules/address/address-details';
 import { CompaniesPage } from '../modules/companies';
 import { Layout } from '../shared/layouts/dashboard';
 
@@ -18,8 +18,8 @@ export const router = createBrowserRouter([
             Component: CompaniesPage,
           },
           {
-            path: '/address/details/:id',
-            Component: AddressDetailsPage,
+            path: '/addresses/details/:id',
+            Component: AddressDetails,
           },
         ],
       },

@@ -6,47 +6,31 @@ import Typography from '@mui/material/Typography';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
+import { ROUTES } from '#/shared/constants/routes.constants';
+import { MuiStylesObject } from '#/shared/types/mui-styles.type';
+
 import { type LoginFormData, loginFormDataSchema } from '../schemas/login-form.schema';
+import { style } from '../styles/style';
 import { LoginButton } from './login-button';
 const styles = {
-  passwordContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'right',
-  },
-
-  inputs: (marginBottom: number) => ({
-    '& .MuiInputBase-root': { height: 45 },
-    '& .MuiInputBase-input': { padding: '10px 12px' },
-    '& .MuiOutlinedInput-root': {
-      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-        borderColor: '#333',
-      },
-    },
-    marginBottom,
-  }),
-};
+  passwordContainer: { display: 'flex', flexDirection: 'column', justifyContent: 'right' },
+} satisfies MuiStylesObject;
 
 export function LoginForm() {
   const navigate = useNavigate();
 
   const {
     register,
-    handleSubmit,
     formState: { errors },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginFormDataSchema),
   });
 
-  function onSubmit() {
-    navigate('/');
-  }
-
   return (
     <Stack direction='column' spacing={2} mt={1}>
-      <Typography>Enter tour email below to login to your account</Typography>
+      <Typography>Enter your email below to login to your account</Typography>
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={() => navigate(ROUTES.auth.login)}
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -56,7 +40,7 @@ export function LoginForm() {
         <TextField
           id='email'
           placeholder='m@example.com'
-          sx={styles.inputs(3)}
+          sx={{ ...style.inputs, marginBottom: 3 }}
           fullWidth={true}
           {...register('email')}
           error={Boolean(errors.email)}
@@ -67,7 +51,7 @@ export function LoginForm() {
             <Typography sx={{ fontWeight: 600 }}>Password</Typography>
             <Typography
               sx={{ fontWeight: 600, cursor: 'pointer', fontSize: 14 }}
-              onClick={() => navigate('/forgot-password')}
+              onClick={() => navigate(ROUTES.auth.forgotPassword)}
             >
               Forgot your password?
             </Typography>
@@ -75,12 +59,12 @@ export function LoginForm() {
           <TextField
             fullWidth={true}
             type='password'
-            sx={styles.inputs(4)}
+            sx={{ ...style.inputs, marginBottom: 4 }}
             {...register('password', {
               required: 'Password is required',
               minLength: { value: 8, message: 'Password should be at least 8 characters' },
             })}
-            error={Boolean(errors.password)}
+            error={!!errors.password}
             helperText={errors.password?.message}
           />
         </Box>

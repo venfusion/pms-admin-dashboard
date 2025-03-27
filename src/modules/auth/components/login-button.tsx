@@ -1,6 +1,8 @@
 import Button from '@mui/material/Button';
 import { type Theme } from '@mui/material/styles';
 
+import { MuiStylesObject } from '#/shared/types/mui-styles.type';
+
 const styles = {
   loginButton: {
     backgroundColor: (theme: Theme) => theme.palette.secondary.main,
@@ -8,7 +10,7 @@ const styles = {
     fontWeight: 600,
     height: 45,
   },
-};
+} satisfies MuiStylesObject;
 
 export function LoginButton() {
   return (

@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 
-import { useThemeContext } from '../theme/themeContext';
+import { useThemeContext } from '../../../theme/themeContext';
 
 export function ThemeButton() {
   const { darkMode, toggleTheme } = useThemeContext();

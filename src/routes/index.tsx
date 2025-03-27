@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
             Component: CompaniesPage,
           },
           {
-            path: 'properties/details/id',
+            path: 'properties/details/:id',
             Component: PropertyDetails,
           },
           {

@@ -2,11 +2,10 @@ import { LocationOn } from '@mui/icons-material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Box, Button, Card, CardContent, Divider, Grid, Typography } from '@mui/material';
-import { Map, YMaps } from '@pbe/react-yandex-maps';
+import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 
 export const PropertyDetails = () => {
   const propertyData = {
-    id: 1,
     name: 'Sunset Apartments',
     marketingName: 'Daho Complex',
     location: '123 Main Street, Los Angeles, CA',
@@ -14,11 +13,14 @@ export const PropertyDetails = () => {
     minPersonalLiabilityCoverage: 12000,
     companyName: 'Daho complex',
     coordinates: {
-      lat: 67.7749,
-      lng: 67.4194,
+      lat: 34.0522,
+      lng: -118.2437,
     },
   };
-
+  const defaultState = {
+    center: [propertyData.coordinates.lat, propertyData.coordinates.lng],
+    zoom: 15,
+  };
   return (
     <Box sx={{ p: 0 }}>
       <Box display='flex' justifyContent='space-between' alignItems='center' mb={3}>
@@ -93,7 +95,7 @@ export const PropertyDetails = () => {
           </Card>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Card>
+          <Card sx={{ height: '100%' }}>
             <CardContent>
               <Typography variant='h6' fontWeight='bold'>
                 Location Map
@@ -101,15 +103,18 @@ export const PropertyDetails = () => {
               <Typography color='textSecondary' mb={2}>
                 Property location visualization
               </Typography>
-              <YMaps>
-                <Map
-                  defaultState={{
-                    center: [propertyData.coordinates.lat, propertyData.coordinates.lng],
-                    zoom: 15,
-                  }}
-                  style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
-                />
-              </YMaps>
+
+              <Divider sx={{ my: 2 }} />
+
+              <Box height={270} borderRadius={2} overflow='hidden' bgcolor='grey.100'>
+                <YMaps>
+                  <Map defaultState={defaultState} style={{ width: '100%', height: '100%' }}>
+                    <Placemark
+                      geometry={[propertyData.coordinates.lat, propertyData.coordinates.lng]}
+                    />
+                  </Map>
+                </YMaps>
+              </Box>
               <Typography mt={2} color='textSecondary'>
                 Coordinates: {propertyData.coordinates.lat}, {propertyData.coordinates.lng}
               </Typography>

@@ -1,12 +1,18 @@
-import { type RouteObject } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
-import { lazyRoute } from '#/shared/utils/router.util';
+import { LoginForm } from './components/login-form';
+import { style } from './styles/style';
 
-const { LoginRoute } = lazyRoute(() => import('./routes/login.route'), 'LoginRoute');
-
-export const AuthRoutes: RouteObject[] = [
-  {
-    path: '/auth/login',
-    element: <LoginRoute />,
-  },
-];
+export function LoginPage() {
+  return (
+    <Box sx={style.rootContainer}>
+      <Box sx={style.form}>
+        <Typography fontSize={26} fontWeight={700}>
+          Login
+        </Typography>
+        <LoginForm />
+      </Box>
+    </Box>
+  );
+}

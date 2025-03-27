@@ -13,7 +13,7 @@ export const style = {
     alignItems: 'center',
   },
   form: {
-    width: 400,
+    width: 480,
     border: '1px solid #ddd',
     padding: '40px',
     boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',

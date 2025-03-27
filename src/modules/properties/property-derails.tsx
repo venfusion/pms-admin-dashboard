@@ -3,9 +3,13 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import { Box, Button, Card, CardContent, Divider, Grid, Typography } from '@mui/material';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
+import { useParams } from 'react-router';
 
 export const PropertyDetails = () => {
+  const { id } = useParams();
+
   const propertyData = {
+    id: id,
     name: 'Sunset Apartments',
     marketingName: 'Daho Complex',
     location: '123 Main Street, Los Angeles, CA',

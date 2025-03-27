@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '#/shared/constants/routes.constants';
 import { MuiStylesObject } from '#/shared/types/mui-styles.type';
 
-import { type LoginFormData, loginFormDataSchema } from '../schemas/login-form.schema';
+import { type LoginFormData, loginSchema } from '../schemas/login-form.schema';
 import { style } from '../styles/style';
 import { LoginButton } from './login-button';
 const styles = {
@@ -21,16 +21,19 @@ export function LoginForm() {
 
   const {
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm<LoginFormData>({
-    resolver: zodResolver(loginFormDataSchema),
+    resolver: zodResolver(loginSchema),
   });
 
   return (
     <Stack direction='column' spacing={2} mt={1}>
       <Typography>Enter your email below to login to your account</Typography>
       <form
-        onSubmit={() => navigate(ROUTES.auth.login)}
+        onSubmit={handleSubmit(() => {
+          navigate(ROUTES.auth.login);
+        })}
         style={{
           display: 'flex',
           flexDirection: 'column',

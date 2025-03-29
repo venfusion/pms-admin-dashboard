@@ -5,7 +5,7 @@ import { Outlet } from 'react-router';
 export function Layout() {
   return (
     <DashboardLayout>
-      <PageContainer>
+      <PageContainer maxWidth={false}>
         <Outlet />
       </PageContainer>
     </DashboardLayout>

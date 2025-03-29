@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
             Component: CompaniesPage,
           },
           {
-            path: '/units',
+            path: '/units/details/:id',
             Component: UnitDetailsPage,
           },
           {

@@ -1,13 +1,11 @@
 import { Apartment, Business, CalendarMonth, Home, PersonOutline } from '@mui/icons-material';
-import { Box, Typography } from '@mui/material';
+import { Box, Card, Divider, Typography } from '@mui/material';
 
-import { unitStyles } from '../styles/unit-styles';
-
-const styles = unitStyles;
+import { unitStyles as styles } from '../styles/unit-styles';
 
 export function UnitInformationPanel() {
   return (
-    <Box sx={styles.container}>
+    <Card sx={styles.container}>
       <Typography sx={styles.mainTitle}>Unit Information</Typography>
       <Typography sx={styles.subTitle}>Detailed information about this apartment</Typography>
 
@@ -24,6 +22,7 @@ export function UnitInformationPanel() {
           <Typography sx={styles.value}>750 sq ft</Typography>
         </Box>
       </Box>
+      <Divider variant='middle' />
 
       <Box sx={styles.sectionAddressRow}>
         <Typography sx={styles.label}>Building Address</Typography>
@@ -35,6 +34,7 @@ export function UnitInformationPanel() {
           </Box>
         </Box>
       </Box>
+      <Divider variant='middle' />
 
       <Box sx={styles.sectionPropertyRow}>
         <Box>
@@ -52,6 +52,7 @@ export function UnitInformationPanel() {
           </Box>
         </Box>
       </Box>
+      <Divider variant='middle' />
 
       <Box sx={styles.lastSection}>
         <Typography sx={styles.label}>Created Date</Typography>
@@ -60,6 +61,6 @@ export function UnitInformationPanel() {
           <Typography sx={styles.value}>August 15th, 2022</Typography>
         </Box>
       </Box>
-    </Box>
+    </Card>
   );
 }

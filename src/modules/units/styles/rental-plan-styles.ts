@@ -1,51 +1,38 @@
+import { MuiStylesObject } from '#/shared/types/mui-styles.type';
+
 export const rentalPlanStyles = {
   container: {
     mx: 3,
     p: 3,
-    border: 1,
-    borderColor: 'gray',
-    borderRadius: 2,
     width: '45%',
     boxShadow: 2,
   },
   headerContainer: {
     display: 'flex',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    mb: 2,
+    alignItems: 'flex-start',
+    mb: 4,
   },
-  mainTitle: {
-    variant: 'h6',
-    fontWeight: 'bold',
-  },
+  mainTitle: { fontWeight: 'bold', mb: 0.5 },
   subTitle: {
     color: 'gray',
   },
   changeButton: {
-    variant: 'outlined',
-    size: 'small',
-    color: 'inherit',
-    border: 1,
+    borderRadius: 1,
+    textTransform: 'none',
+    px: 2,
   },
   headerRow: {
-    px: 2,
-    py: 1,
-    borderBottom: 1,
-    display: 'flex',
-    justifyContent: 'space-between',
-    fontWeight: 'bold',
-    color: 'gray',
+    borderBottom: '1px solid rgba(224, 224, 224, 1)',
+    color: 'text.secondary',
+    fontWeight: 'normal',
   },
   headerColumn: {
     width: '30%',
   },
   planRow: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    px: 2,
-    py: 3,
-    borderBottom: 1,
-    borderColor: 'gray',
+    py: 2.5,
+    fontWeight: 'bold',
   },
   valueStyle: {
     fontWeight: 'bolder',
@@ -71,9 +58,9 @@ export const rentalPlanStyles = {
     mt: 1,
   },
   planTag: {
-    variant: 'body2',
     border: 1,
     p: 1,
     borderRadius: 5,
+    fontSize: '0.8rem',
   },
-};
+} satisfies MuiStylesObject;

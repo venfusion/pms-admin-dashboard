@@ -1,11 +1,10 @@
+import { MuiStylesObject } from '#/shared/types/mui-styles.type';
+
 export const unitStyles = {
   container: {
     mx: 3,
     p: 3,
-    border: 1,
-    borderColor: 'gray',
-    borderRadius: 2,
-    width: '60%',
+    width: '55%',
     boxShadow: 2,
   },
   mainTitle: {
@@ -28,31 +27,26 @@ export const unitStyles = {
   },
   sectionFirstRow: {
     py: 2,
-    borderBottom: 1,
-    borderBottomColor: 'gray',
     display: 'flex',
-    gap: 20,
+    gap: 15,
   },
   sectionAddressRow: {
     py: 2,
-    borderBottom: 1,
-    borderBottomColor: 'gray',
     flexDirection: 'column',
     gap: 0,
   },
   sectionPropertyRow: {
     py: 2,
-    borderBottom: 1,
-    borderBottomColor: 'gray',
     display: 'flex',
+    gap: 15,
   },
   lastSection: {
     pt: 2,
   },
   iconTextContainer: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'start',
     gap: 1,
     my: 1,
   },
-};
+} satisfies MuiStylesObject;

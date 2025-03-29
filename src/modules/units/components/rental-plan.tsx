@@ -1,24 +1,32 @@
 import {
   Box,
   Button,
+  Card,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
   FormControlLabel,
+  Paper,
   Radio,
   RadioGroup,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
   Typography,
 } from '@mui/material';
 import { useState } from 'react';
 
-import { rentalPlanStyles } from '../styles/rental-plan-styles';
+import { rentalPlanStyles as styles } from '../styles/rental-plan-styles';
 
 const plans = [
   { name: 'Monthly', cycle: 'Every month' },
   { name: 'Quarterly', cycle: 'Every 3 months' },
   { name: 'Semi-annually', cycle: 'Every 6 months' },
-  { name: 'Yearly', cycle: 'Every month' },
+  { name: 'Yearly', cycle: 'Every 12 months' },
 ];
 
 const rentalPlans = [
@@ -44,7 +52,7 @@ const rentalPlans = [
     annual: '$15,400',
   },
 ];
-const styles = rentalPlanStyles;
+
 export function RentalPlanPanel() {
   const [open, setOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(rentalPlans[0]);
@@ -55,48 +63,68 @@ export function RentalPlanPanel() {
     const newPlan = rentalPlans.find((plan) => plan.name === event.target.value) ?? rentalPlans[0];
     setSelectedPlan(newPlan);
   };
-  const selectedPlanPrices = Object.values(selectedPlan);
+
+  const getPriceForPlan = (index: number) => {
+    switch (index) {
+      case 0:
+        return selectedPlan.price;
+      case 1:
+        return selectedPlan.quarterly;
+      case 2:
+        return selectedPlan.semiAnnual;
+      case 3:
+        return selectedPlan.annual;
+      default:
+        return '';
+    }
+  };
 
   return (
-    <Box sx={styles.container}>
+    <Card sx={styles.container}>
       <Box sx={styles.headerContainer}>
         <Box>
-          <Typography sx={styles.mainTitle}>Rental Plan</Typography>
-          <Typography sx={styles.subTitle}>{selectedPlan.name}</Typography>
+          <Typography variant='h5' sx={styles.mainTitle}>
+            Rental Plan
+          </Typography>
+          <Typography variant='subtitle1' color='text.secondary'>
+            {selectedPlan.name}
+          </Typography>
         </Box>
-        <Button sx={styles.changeButton} onClick={handleOpen}>
+        <Button variant='outlined' sx={styles.changeButton} onClick={handleOpen}>
           Change Plan
         </Button>
       </Box>
-      <Box sx={styles.headerRow}>
-        <Typography sx={styles.headerColumn}>Plan</Typography>
-        <Typography sx={styles.headerColumn}>Price</Typography>
-        <Typography sx={styles.headerColumn}>Billing Cycle</Typography>
-      </Box>
-      {plans.map((plan, index) => (
-        <Box
-          key={index}
-          sx={{
-            ...styles.planRow,
-            borderBottom: index !== plans.length - 1 ? 1 : 0,
-          }}
-        >
-          <Typography sx={{ ...styles.valueStyle, ...styles.planWidth }}>{plan.name}</Typography>
-          <Typography sx={{ ...styles.valueStyle, ...styles.planWidth }}>
-            {selectedPlanPrices[index + 1]}
-          </Typography>
-          <Typography sx={{ ...styles.valueStyle, ...styles.planWidth }}>{plan.cycle}</Typography>
-        </Box>
-      ))}
+
+      <TableContainer component={Paper} elevation={0}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell sx={styles.headerRow}>Plan</TableCell>
+              <TableCell sx={styles.headerRow}>Price</TableCell>
+              <TableCell sx={styles.headerRow}>Billing Cycle</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {plans.map((plan, index) => (
+              <TableRow key={index}>
+                <TableCell sx={styles.planRow}>{plan.name}</TableCell>
+                <TableCell sx={styles.planRow}>{getPriceForPlan(index)}</TableCell>
+                <TableCell sx={styles.planRow}>{plan.cycle}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
       <Dialog open={open} onClose={handleClose} fullWidth>
         <DialogTitle>Select Rental Plan</DialogTitle>
-        <DialogContent>
-          <Typography>
+        <DialogContent sx={{ pt: 2 }}>
+          <Typography sx={{ mb: 3 }}>
             Choose a rental plan for this unit. Current plan: {selectedPlan.name}
           </Typography>
           <RadioGroup value={selectedPlan.name} onChange={handleChange}>
             {rentalPlans.map((plan, index) => (
-              <Box key={index} sx={styles.dialogPlanContainer}>
+              <Card key={index} sx={styles.dialogPlanContainer}>
                 <FormControlLabel
                   value={plan.name}
                   control={<Radio />}
@@ -115,7 +143,7 @@ export function RentalPlanPanel() {
                   <Typography sx={styles.planTag}>Semi-annual: {plan.semiAnnual}</Typography>
                   <Typography sx={styles.planTag}>Annual: {plan.annual}</Typography>
                 </Box>
-              </Box>
+              </Card>
             ))}
           </RadioGroup>
         </DialogContent>
@@ -126,6 +154,6 @@ export function RentalPlanPanel() {
           </Button>
         </DialogActions>
       </Dialog>
-    </Box>
+    </Card>
   );
 }

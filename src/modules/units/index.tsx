@@ -3,9 +3,7 @@ import { Box, Button, Typography } from '@mui/material';
 
 import { RentalPlanPanel } from './components/rental-plan';
 import { UnitInformationPanel } from './components/unit-information.component';
-import { UnitDetailsStyles } from './styles/units-page.style';
-
-const styles = UnitDetailsStyles;
+import { UnitDetailsStyles as styles } from './styles/units-page.style';
 
 export function UnitDetailsPage() {
   return (
@@ -19,7 +17,7 @@ export function UnitDetailsPage() {
           </Box>
         </Box>
         <Box sx={styles.buttonContainer}>
-          <Button sx={styles.editButton}>
+          <Button color='info' sx={styles.editButton}>
             <EditNote /> Edit
           </Button>
           <Button color='error' sx={styles.deleteButton}>

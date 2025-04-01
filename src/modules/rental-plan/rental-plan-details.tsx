@@ -29,7 +29,7 @@ export const RentalPlanDetails = () => {
     monthly: 2500,
     quarterly: 5000,
     semiAnnualy: 10000,
-    yearly: null,
+    yearly: 20000,
   };
   const plans = [
     {

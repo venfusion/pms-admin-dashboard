@@ -27,7 +27,7 @@ export const PropertyDetails = () => {
   };
   return (
     <Box sx={{ p: 0 }}>
-      <Box display='flex' justifyContent='space-between' alignItems='center' mb={3}>
+      <Box display='flex' justifyContent='space-between' alignItems='center' mb={2}>
         <Typography variant='h4' fontWeight='bold'>
           Property Details
         </Typography>
@@ -42,14 +42,21 @@ export const PropertyDetails = () => {
           </Button>
         </Box>
       </Box>
-      <Grid container spacing={3} sx={{ height: 'auto' }}>
+      <Grid container spacing={3} alignItems='stretch'>
         <Grid item xs={12} md={6}>
-          <Card>
+          <Card
+            sx={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              border: '1px solid #ddd',
+            }}
+          >
             <CardContent>
               <Typography variant='h6' fontWeight='bold'>
                 Property Information
               </Typography>
-              <Typography color='textSecondary' mb={2}>
+              <Typography color='textSecondary' mb={6}>
                 Detailed information about this property
               </Typography>
 
@@ -99,18 +106,23 @@ export const PropertyDetails = () => {
           </Card>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Card sx={{ height: '100%' }}>
+          <Card
+            sx={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              border: '1px solid #ddd',
+            }}
+          >
             <CardContent>
               <Typography variant='h6' fontWeight='bold'>
                 Location Map
               </Typography>
-              <Typography color='textSecondary' mb={2}>
+              <Typography color='textSecondary' mb={6}>
                 Property location visualization
               </Typography>
 
-              <Divider sx={{ my: 2 }} />
-
-              <Box height={270} borderRadius={2} overflow='hidden' bgcolor='grey.100'>
+              <Box height={370} borderRadius={2} overflow='hidden' bgcolor='grey.100'>
                 <YMaps>
                   <Map defaultState={defaultState} style={{ width: '100%', height: '100%' }}>
                     <Placemark

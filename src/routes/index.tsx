@@ -7,6 +7,7 @@ import App from '../App';
 import { AddressDetails } from '../modules/address/address-details';
 import { CompaniesPage } from '../modules/companies';
 import { UnitDetailsPage } from '../modules/units';
+import { PropertyDetails } from '../modules/properties/property-derails';
 import { Layout } from '../shared/layouts/dashboard';
 
 export const router = createBrowserRouter([
@@ -27,7 +28,11 @@ export const router = createBrowserRouter([
           },
           {
             path: '/units/details/:id',
-            Component: UnitDetailsPage,
+            Component: UnitDetailsPage,   
+          },
+          {
+            path: 'properties/details/:id',
+            Component: PropertyDetails,
           },
           {
             path: '/addresses/details/:id',

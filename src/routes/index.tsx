@@ -4,9 +4,9 @@ import { LoginPage } from '#/modules/auth';
 import { ROUTES } from '#/shared/constants/routes.constants';
 
 import App from '../App';
-import { AddressDetails } from '../modules/address/address-details';
+import { AddressDetails as AddressDetailsPage } from '../modules/address/address-details';
+import { PropertyDetails as PropertyDetailsPage } from '../modules/properties/property-details';
 import { CompaniesPage } from '../modules/companies';
-import { PropertyDetails } from '../modules/properties/property-details';
 import { UnitDetailsPage } from '../modules/units/unit-details';
 import { Layout } from '../shared/layouts/dashboard';
 
@@ -32,11 +32,11 @@ export const router = createBrowserRouter([
           },
           {
             path: 'properties/details/:id',
-            Component: PropertyDetails,
+            Component: PropertyDetailsPage,
           },
           {
             path: '/addresses/details/:id',
-            Component: AddressDetails,
+            Component: AddressDetailsPage,
           },
         ],
       },

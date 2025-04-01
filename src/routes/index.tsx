@@ -6,6 +6,7 @@ import { ROUTES } from '#/shared/constants/routes.constants';
 import App from '../App';
 import { AddressDetails } from '../modules/address/address-details';
 import { CompaniesPage } from '../modules/companies';
+import { PropertyDetails } from '../modules/properties/property-details';
 import { UnitDetailsPage } from '../modules/units/unit-details';
 import { Layout } from '../shared/layouts/dashboard';
 
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
           {
             path: '/units/details/:id',
             Component: UnitDetailsPage,
+          },
+          {
+            path: 'properties/details/:id',
+            Component: PropertyDetails,
           },
           {
             path: '/addresses/details/:id',

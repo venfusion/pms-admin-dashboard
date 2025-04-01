@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router';
 
-import { RentalPlanDetails } from './modules/rental-plan/rental-plan-details';
+import { router } from './routes';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RentalPlanDetails />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );

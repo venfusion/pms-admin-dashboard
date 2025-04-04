@@ -29,28 +29,28 @@ export const RentalPlanDetails = () => {
     monthly: 2500,
     quarterly: 5000,
     semiAnnualy: 10000,
-    yearly: 20000,
+    yearly: null,
   };
   const plans = [
     {
       title: 'Monthly',
       description: 'Billed every month',
-      price: rentalPlanData.monthly ? `${rentalPlanData.monthly}` : '',
+      price: rentalPlanData.monthly || '',
     },
     {
       title: 'Quarterly',
       description: 'Billed every 3 months',
-      price: rentalPlanData.quarterly ? `${rentalPlanData.quarterly}` : '',
+      price: rentalPlanData.quarterly || '',
     },
     {
       title: 'Semi-annually',
       description: 'Billed every 6 months',
-      price: rentalPlanData.semiAnnualy ? `${rentalPlanData.semiAnnualy}` : '',
+      price: rentalPlanData.semiAnnualy || '',
     },
     {
       title: 'Yearly',
       description: 'Billed every 12 months',
-      price: rentalPlanData.yearly ? `${rentalPlanData.yearly}` : '',
+      price: rentalPlanData.yearly || '',
     },
   ]
     .filter((plan) => plan.price)
@@ -165,7 +165,7 @@ export const RentalPlanDetails = () => {
                         <Typography fontWeight='bold'>{plan.title}</Typography>
                         <Typography color='textSecondary'>{plan.description}</Typography>
                       </Box>
-                      <Typography fontWeight='bold' fontSize='2rem'>
+                      <Typography fontWeight={600} fontSize={'1.5rem'} color='primary'>
                         {plan.price}
                       </Typography>
                     </CardContent>

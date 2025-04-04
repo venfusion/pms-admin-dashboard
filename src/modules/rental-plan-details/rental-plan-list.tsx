@@ -24,10 +24,7 @@ export const RentalPlanList = () => {
         field: 'index',
         headerName: '#',
         width: 40,
-        renderCell: (params) => {
-          const rowIndex = params.api.getRowIndexRelativeToVisibleRows(params.id);
-          return rowIndex + 1;
-        },
+        renderCell: ({ api, id }) => api.getRowIndexRelativeToVisibleRows(id) + 1,
         type: 'number',
       },
       ...columns,

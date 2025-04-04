@@ -100,7 +100,7 @@ export const AddressDetails = () => {
                 </Grid>
               </Grid>
 
-              <Divider sx={{ my: 2 }} />
+              <Divider sx={{ my: 3 }} />
 
               <Box>
                 <Typography variant='body2' color='text.secondary' fontWeight={600} gutterBottom>
@@ -141,7 +141,7 @@ export const AddressDetails = () => {
                 </Grid>
               </Box>
 
-              <Divider sx={{ my: 2 }} />
+              <Divider sx={{ my: 3 }} />
 
               <Box>
                 <Grid container spacing={2}>
@@ -169,11 +169,9 @@ export const AddressDetails = () => {
               <Typography variant='h4' component='h1'>
                 Location Map
               </Typography>
-              <Typography variant='subtitle1' color='text.secondary'>
+              <Typography variant='subtitle1' color='text.secondary' pb={3}>
                 Propery location visualization
               </Typography>
-
-              <Divider sx={{ my: 2 }} />
 
               <Box height={270} borderRadius={2} overflow='hidden' bgcolor='grey.100'>
                 <YMaps>

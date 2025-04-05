@@ -9,7 +9,7 @@ import {
   Card,
   CardContent,
   Divider,
-  Grid,
+  Grid2 as Grid,
   Paper,
   Stack,
   Switch,
@@ -29,7 +29,7 @@ export const RentalPlanDetails = () => {
     monthly: 2500,
     quarterly: 5000,
     semiAnnualy: 10000,
-    yearly: null,
+    yearly: 20000,
   };
   const plans = [
     {
@@ -52,9 +52,8 @@ export const RentalPlanDetails = () => {
       description: 'Billed every 12 months',
       price: rentalPlanData.yearly || '',
     },
-  ]
-    .filter((plan) => plan.price)
-    .map((plan) => ({ ...plan, price: `$${plan.price}` }));
+  ].filter((plan) => plan.price);
+  console.log(plans);
 
   return (
     <Box sx={{ p: 0 }}>
@@ -74,7 +73,7 @@ export const RentalPlanDetails = () => {
         </Box>
       </Box>
       <Grid container spacing={3} alignItems='stretch'>
-        <Grid item xs={12} md={6}>
+        <Grid size={6}>
           <Card
             sx={{
               height: '100%',
@@ -92,17 +91,17 @@ export const RentalPlanDetails = () => {
               </Typography>
 
               <Grid container spacing={4}>
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Typography fontWeight='bold'>Property</Typography>
                   <Typography display='flex' alignItems='center'>
                     <HomeIcon fontSize='medium' />
                     {rentalPlanData.propertyName}
                   </Typography>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Divider />
                 </Grid>
-                <Grid item xs={12} display='flex' justifyContent='space-between'>
+                <Grid size={12} display='flex' justifyContent='space-between'>
                   <Box>
                     <Typography variant='subtitle1' fontWeight='bold'>
                       Default Plan
@@ -113,17 +112,17 @@ export const RentalPlanDetails = () => {
                   </Box>
                   <Switch checked={checked} onChange={(e) => setChecked(e.target.checked)} />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Divider />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={6}>
                   <Typography fontWeight='bold'>Created Date</Typography>
                   <Typography display='flex' alignItems='center'>
                     <CalendarTodayIcon />
                     September 15th, 2023
                   </Typography>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid size={6}>
                   <Typography fontWeight='bold'>Units Using This Plan</Typography>
                   <Typography display='flex' alignItems='center'>
                     <PeopleIcon />
@@ -134,7 +133,7 @@ export const RentalPlanDetails = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid size={6}>
           <Card
             sx={{
               height: '100%',
@@ -166,7 +165,7 @@ export const RentalPlanDetails = () => {
                         <Typography color='textSecondary'>{plan.description}</Typography>
                       </Box>
                       <Typography fontWeight={600} fontSize={'1.5rem'} color='primary'>
-                        {plan.price}
+                        {`$${plan.price}`}
                       </Typography>
                     </CardContent>
                   </Card>
@@ -175,7 +174,7 @@ export const RentalPlanDetails = () => {
             </CardContent>
           </Card>
         </Grid>
-        <Grid item xs={12} md={12} mb={6}>
+        <Grid size={12}>
           <Card
             sx={{
               height: '100%',

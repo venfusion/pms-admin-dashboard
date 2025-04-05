@@ -25,6 +25,7 @@ export const RentalPlanDetails = () => {
     id: id,
     name: 'Premiun One Bedroom',
     unitsUsing: 8,
+    createdAt: 'September 15th, 2023',
     propertyName: 'Sunset Apartments',
     monthly: 2500,
     quarterly: 5000,
@@ -53,8 +54,6 @@ export const RentalPlanDetails = () => {
       price: rentalPlanData.yearly || '',
     },
   ].filter((plan) => plan.price);
-  console.log(plans);
-
   return (
     <Box sx={{ p: 0 }}>
       <Box display='flex' justifyContent='space-between' alignItems='center' mb={2}>
@@ -93,10 +92,10 @@ export const RentalPlanDetails = () => {
               <Grid container spacing={4}>
                 <Grid size={12}>
                   <Typography fontWeight='bold'>Property</Typography>
-                  <Typography display='flex' alignItems='center'>
-                    <HomeIcon fontSize='medium' />
-                    {rentalPlanData.propertyName}
-                  </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <HomeIcon fontSize='medium' color='primary' />
+                    <Typography variant='body1'>{rentalPlanData.propertyName}</Typography>
+                  </Box>
                 </Grid>
                 <Grid size={12}>
                   <Divider />
@@ -117,17 +116,17 @@ export const RentalPlanDetails = () => {
                 </Grid>
                 <Grid size={6}>
                   <Typography fontWeight='bold'>Created Date</Typography>
-                  <Typography display='flex' alignItems='center'>
-                    <CalendarTodayIcon />
-                    September 15th, 2023
-                  </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <CalendarTodayIcon color='primary' />
+                    <Typography variant='body1'>{rentalPlanData.createdAt}</Typography>
+                  </Box>
                 </Grid>
                 <Grid size={6}>
                   <Typography fontWeight='bold'>Units Using This Plan</Typography>
-                  <Typography display='flex' alignItems='center'>
-                    <PeopleIcon />
-                    {rentalPlanData.unitsUsing}
-                  </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                    <PeopleIcon color='primary' />
+                    <Typography variant='body1'>{rentalPlanData.unitsUsing}</Typography>
+                  </Box>
                 </Grid>
               </Grid>
             </CardContent>

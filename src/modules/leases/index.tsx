@@ -1,4 +1,5 @@
 import { Delete, Edit } from '@mui/icons-material';
+import { Chip } from '@mui/material';
 import { Box } from '@mui/material';
 import { GridColDef, GridFilterModel, GridRowId } from '@mui/x-data-grid';
 import { useCallback, useEffect, useState } from 'react';
@@ -27,6 +28,29 @@ const rowActions: TableAction[] = [
   },
 ];
 
+const getStatusColor = (status: string) => {
+  switch (status.toUpperCase()) {
+    case 'DRAFT':
+      return 'default';
+    case 'PENDING':
+      return 'warning';
+    case 'REJECTED':
+      return 'error';
+    case 'SIGNED':
+      return 'info';
+    case 'ACTIVE':
+      return 'success';
+    case 'CANCELLED':
+      return 'error';
+    case 'EXPIRED':
+      return 'warning';
+    case 'TERMINATED':
+      return 'error';
+    default:
+      return 'default';
+  }
+};
+
 const columns: GridColDef[] = [
   {
     field: 'userId',
@@ -37,11 +61,32 @@ const columns: GridColDef[] = [
   { field: 'propertyId', headerName: 'Property ID', flex: 1 },
   { field: 'unitId', headerName: 'Unit ID', flex: 1 },
   { field: 'addressId', headerName: 'Address ID', flex: 1 },
-  { field: 'status', headerName: 'Status', flex: 1 },
+  {
+    field: 'status',
+    headerName: 'Status',
+    flex: 1,
+    renderCell: (params) => (
+      <Chip
+        label={params.value}
+        color={getStatusColor(params.value)}
+        variant='outlined'
+        size='small'
+        sx={{ textTransform: 'capitalize' }}
+      />
+    ),
+  },
   { field: 'type', headerName: 'Type', flex: 1 },
   { field: 'rentalPlanId', headerName: 'Rental-plan ID', flex: 1 },
-  { field: 'startDate', headerName: 'Start date', flex: 1 },
-  { field: 'endDate', headerName: 'End date', flex: 1 },
+  {
+    field: 'startDate',
+    headerName: 'Start date',
+    flex: 1,
+  },
+  {
+    field: 'endDate',
+    headerName: 'End date',
+    flex: 1,
+  },
 ];
 
 const SAMPLE_DATA = [
@@ -51,7 +96,7 @@ const SAMPLE_DATA = [
     propertyId: 'uuid1',
     unitId: 'uuid1',
     addressId: 'uuid1',
-    status: 'draft',
+    status: 'cancelled',
     type: 'monthly',
     rentalPlanId: 'uuid1',
     startDate: '2023-01-01',
@@ -98,20 +143,35 @@ export function LeasesListPage() {
     setLoading(true);
     try {
       const typeFilter = filterModel.items.find((item) => item.field === 'type')?.value || '';
-
-      // In prod, this would be an API call
-      // const response = await apiClient.get(`/companies?name=${typeFilter}`);
-      // const data = await response.data
+      const statusFilter = filterModel.items.find((item) => item.field === 'status')?.value || '';
+      const startDateFilter =
+        filterModel.items.find((item) => item.field === 'startDate')?.value || '';
+      const endDateFilter = filterModel.items.find((item) => item.field === 'endDate')?.value || '';
 
       let filteredData = [...SAMPLE_DATA].map((lease) => ({
         ...lease,
         startDate: new Date(lease.startDate),
         endDate: new Date(lease.endDate),
       }));
+
       if (typeFilter) {
         filteredData = filteredData.filter((lease) =>
           lease.type.toLowerCase().includes(String(typeFilter).toLowerCase()),
         );
+      }
+
+      if (statusFilter) {
+        filteredData = filteredData.filter((lease) =>
+          lease.status.toLowerCase().includes(String(statusFilter).toLowerCase()),
+        );
+      }
+
+      if (startDateFilter) {
+        filteredData = filteredData.filter((lease) => lease.startDate >= new Date(startDateFilter));
+      }
+
+      if (endDateFilter) {
+        filteredData = filteredData.filter((lease) => lease.endDate <= new Date(endDateFilter));
       }
 
       setRows(filteredData);

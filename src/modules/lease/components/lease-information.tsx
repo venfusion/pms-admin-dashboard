@@ -64,7 +64,7 @@ export function LeaseInformation() {
               </Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <HomeOutlinedIcon color='primary' />
-                <Typography variant='body1'>{leaseData.name}</Typography>
+                <Typography variant='body1'>{leaseData.property.name}</Typography>
               </Box>
             </Grid>
 
@@ -74,7 +74,7 @@ export function LeaseInformation() {
               </Typography>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <DoorFrontOutlinedIcon color='primary' />
-                <Typography variant='body1'>{leaseData.name}</Typography>
+                <Typography variant='body1'>{leaseData.unit.name}</Typography>
               </Box>
             </Grid>
           </Grid>

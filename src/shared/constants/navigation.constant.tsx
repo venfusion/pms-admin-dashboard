@@ -1,3 +1,4 @@
+import { DocumentScanner } from '@mui/icons-material';
 import AddLocationIcon from '@mui/icons-material/AddLocation';
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import BarChartIcon from '@mui/icons-material/BarChart';
@@ -42,6 +43,11 @@ export const NAVIGATION: Navigation = [
     segment: 'units',
     title: 'Units',
     icon: <MeetingRoomIcon />,
+  },
+  {
+    segment: 'leases',
+    title: 'Leases',
+    icon: <DocumentScanner />,
   },
   {
     kind: 'divider',

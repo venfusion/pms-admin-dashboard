@@ -12,6 +12,8 @@ import {
 import { GridToolbarContainer } from '@mui/x-data-grid';
 import { useState } from 'react';
 
+import { capitalize } from '#/shared/utils/capitalize.util.ts';
+
 import { policyListTableToolbarStyles } from '../styles/policy-list-table-toolbar.style.ts';
 
 type FilterOption = {
@@ -19,27 +21,28 @@ type FilterOption = {
   value: string;
 };
 
+const statusOptions: FilterOption[] = [
+  { label: 'Active', value: 'ACTIVE' },
+  { label: 'Draft', value: 'DRAFT' },
+  { label: 'Cancelled', value: 'CANCELLED' },
+  { label: 'Expired', value: 'EXPIRED' },
+  { label: 'Terminated', value: 'TERMINATED' },
+];
+
+const paymentTypeOptions: FilterOption[] = [
+  { label: 'Monthly', value: 'MONTHLY' },
+  { label: 'Yearly', value: 'YEARLY' },
+];
+
 export function PolicyListTableToolbar() {
   const [statusFilter, setStatusFilter] = useState<string[]>([]);
   const [paymentTypeFilter, setPaymentTypeFilter] = useState<string>('');
-
-  const statusOptions: FilterOption[] = [
-    { label: 'Active', value: 'ACTIVE' },
-    { label: 'Draft', value: 'DRAFT' },
-    { label: 'Cancelled', value: 'CANCELLED' },
-    { label: 'Expired', value: 'EXPIRED' },
-    { label: 'Terminated', value: 'TERMINATED' },
-  ];
-
-  const paymentTypeOptions: FilterOption[] = [
-    { label: 'Monthly', value: 'MONTHLY' },
-    { label: 'Yearly', value: 'YEARLY' },
-  ];
 
   const handleStatusChange = (event: SelectChangeEvent<typeof statusFilter>) => {
     const {
       target: { value },
     } = event;
+    console.log(value);
     setStatusFilter(typeof value === 'string' ? value.split(',') : value);
   };
 
@@ -51,25 +54,6 @@ export function PolicyListTableToolbar() {
     setStatusFilter([]);
     setPaymentTypeFilter('');
   };
-
-  const ITEM_HEIGHT = 48;
-  const ITEM_PADDING_TOP = 8;
-  const MenuProps = {
-    PaperProps: {
-      style: {
-        maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-        width: 250,
-      },
-    },
-  };
-
-  function getStatusLabel(value: string): string {
-    return statusOptions.find((option) => option.value === value)?.label || value;
-  }
-
-  function getPaymentTypeLabel(value: string): string {
-    return paymentTypeOptions.find((option) => option.value === value)?.label || '';
-  }
 
   return (
     <GridToolbarContainer sx={policyListTableToolbarStyles.container}>
@@ -86,11 +70,10 @@ export function PolicyListTableToolbar() {
             renderValue={(selected) => (
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                 {selected.map((value) => (
-                  <Chip key={value} label={getStatusLabel(value)} size='small' />
+                  <Chip key={value} label={capitalize(value)} size='small' />
                 ))}
               </Box>
             )}
-            MenuProps={MenuProps}
             sx={policyListTableToolbarStyles.select}
           >
             {statusOptions.map((option) => (
@@ -110,9 +93,8 @@ export function PolicyListTableToolbar() {
             onChange={handlePaymentTypeChange}
             input={<OutlinedInput label='Payment Type' />}
             renderValue={(selected) => {
-              return getPaymentTypeLabel(selected);
+              return capitalize(selected);
             }}
-            MenuProps={MenuProps}
             sx={policyListTableToolbarStyles.select}
           >
             {paymentTypeOptions.map((option) => (

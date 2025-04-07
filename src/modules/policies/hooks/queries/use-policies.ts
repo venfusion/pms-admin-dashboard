@@ -4,7 +4,7 @@ import axiosInstance from '#/api/httpClient';
 import { BaseErrorResponse } from '#/shared/types/base-error-response.type';
 import { BaseResponse } from '#/shared/types/base-response.type';
 
-import { Policy } from '../types/policy.type';
+import { Policy } from '../../types/policy.type';
 
 const getPolicies = async (
   page: number = 1,

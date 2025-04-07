@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
 import { LoginPage } from '#/modules/auth';
+import { RentalPlanDetails } from '#/modules/rental-plan/rental-plan-details';
 import { RentalPlanList } from '#/modules/rental-plan/rental-plan-list';
 import { ROUTES } from '#/shared/constants/routes.constants';
 
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
           {
             path: '/addresses/details/:id',
             Component: AddressDetailsPage,
+          },
+          {
+            path: '/rental-plan/details/:id',
+            Component: RentalPlanDetails,
           },
           {
             path: 'rental-plan/list',

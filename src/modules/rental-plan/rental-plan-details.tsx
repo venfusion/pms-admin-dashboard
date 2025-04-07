@@ -15,7 +15,7 @@ import {
   Switch,
   Typography,
 } from '@mui/material';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useParams } from 'react-router';
 
 export const RentalPlanDetails = () => {
@@ -32,28 +32,35 @@ export const RentalPlanDetails = () => {
     semiAnnualy: 10000,
     yearly: 20000,
   };
-  const plans = [
-    {
-      title: 'Monthly',
-      description: 'Billed every month',
-      price: rentalPlanData.monthly || '',
-    },
-    {
-      title: 'Quarterly',
-      description: 'Billed every 3 months',
-      price: rentalPlanData.quarterly || '',
-    },
-    {
-      title: 'Semi-annually',
-      description: 'Billed every 6 months',
-      price: rentalPlanData.semiAnnualy || '',
-    },
-    {
-      title: 'Yearly',
-      description: 'Billed every 12 months',
-      price: rentalPlanData.yearly || '',
-    },
-  ].filter((plan) => plan.price);
+  const plans = useMemo(() => {
+    return [
+      {
+        title: 'Monthly',
+        description: 'Billed every month',
+        price: rentalPlanData.monthly || '',
+      },
+      {
+        title: 'Quarterly',
+        description: 'Billed every 3 months',
+        price: rentalPlanData.quarterly || '',
+      },
+      {
+        title: 'Semi-annually',
+        description: 'Billed every 6 months',
+        price: rentalPlanData.semiAnnualy || '',
+      },
+      {
+        title: 'Yearly',
+        description: 'Billed every 12 months',
+        price: rentalPlanData.yearly || '',
+      },
+    ].filter((plan) => plan.price);
+  }, [
+    rentalPlanData.monthly,
+    rentalPlanData.quarterly,
+    rentalPlanData.semiAnnualy,
+    rentalPlanData.yearly,
+  ]);
   return (
     <Box sx={{ p: 0 }}>
       <Box display='flex' justifyContent='space-between' alignItems='center' mb={2}>

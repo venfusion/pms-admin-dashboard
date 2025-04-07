@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
 import { LoginPage } from '#/modules/auth';
-import { RentalPlanList } from '#/modules/rental-plan-details/rental-plan-list';
+import { RentalPlanList } from '#/modules/rental-plan/rental-plan-list';
 import { ROUTES } from '#/shared/constants/routes.constants';
 
 import App from '../App';

@@ -8,12 +8,12 @@ import { Table } from '#/shared/components/table/table';
 export const RentalPlanList = () => {
   const columns: GridColDef[] = useMemo(
     () => [
-      { field: 'name', headerName: 'Name', width: 200 },
-      { field: 'monthly', headerName: 'Monthly', width: 150 },
-      { field: 'quarterly', headerName: 'Quarterly', width: 150 },
-      { field: 'semiannually', headerName: 'Semiannually', width: 150 },
-      { field: 'yearly', headerName: 'Yearly', width: 150 },
-      { field: 'createdAt', headerName: 'Created', width: 200 },
+      { field: 'name', headerName: 'Name', flex: 1 },
+      { field: 'monthly', headerName: 'Monthly', flex: 1 },
+      { field: 'quarterly', headerName: 'Quarterly', flex: 1 },
+      { field: 'semiannually', headerName: 'Semiannually', flex: 1 },
+      { field: 'yearly', headerName: 'Yearly', flex: 1 },
+      { field: 'createdAt', headerName: 'Created', flex: 1 },
     ],
     [],
   );
@@ -23,7 +23,7 @@ export const RentalPlanList = () => {
       {
         field: 'index',
         headerName: '#',
-        width: 40,
+        width: 60,
         renderCell: ({ api, id }) => api.getRowIndexRelativeToVisibleRows(id) + 1,
         type: 'number',
       },

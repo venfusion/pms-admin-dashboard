@@ -1,0 +1,1 @@
+export { usePropertiesStore } from './propertiesStore';

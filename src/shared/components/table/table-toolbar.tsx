@@ -19,16 +19,16 @@ export function TableToolbar({
     <GridToolbarContainer
       sx={{
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        p: 1,
-        paddingRight: 2.6,
+        flexDirection: 'column',
+        width: '100%',
       }}
     >
       <Toolbar />
-      <Box>
-        <TableBulkActionsMenu bulkActions={bulkActions} selectedRows={selectedRows} />
-      </Box>
+      {selectedRows.length > 0 && (
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', width: '100%', p: 1 }}>
+          <TableBulkActionsMenu bulkActions={bulkActions} selectedRows={selectedRows} />
+        </Box>
+      )}
     </GridToolbarContainer>
   );
 }

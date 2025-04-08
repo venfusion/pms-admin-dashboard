@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router';
 
 import { LoginPage } from '#/modules/auth';
+import { LeaseDetails } from '#/modules/lease';
 import { RentalPlanDetails } from '#/modules/rental-plan/rental-plan-details';
 import { RentalPlanList } from '#/modules/rental-plan/rental-plan-list';
 import { ROUTES } from '#/shared/constants/routes.constants';
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
             Component: UnitDetailsPage,
           },
           {
-            path: 'properties/details/:id',
+            path: '/properties/details/:id',
             Component: PropertyDetailsPage,
           },
           {
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
           {
             path: '/policies',
             Component: PoliciesPage,
+          },
+          {
+            path: '/leases/details/:id',
+            Component: LeaseDetails,
           },
           {
             path: '/leases/list',

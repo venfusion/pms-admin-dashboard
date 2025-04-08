@@ -1,7 +1,7 @@
 export const ROUTES = {
   root: '/',
   auth: {
-    login: 'auth/login',
+    login: '/auth/login',
     forgotPassword: '/forgot-password',
   },
 };

@@ -6,7 +6,7 @@ import { PolicyDetailsHeader } from './components/policy-details/policy-details-
 import { PolicyOverview } from './components/policy-details/policy-overview-card';
 import { PolicyPaymentType, PolicyStatus } from './types/policy.type';
 
-export function PolicyDetails() {
+export function PolicyDetailsPage() {
   return (
     <>
       <PolicyDetailsHeader

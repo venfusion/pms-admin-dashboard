@@ -2,11 +2,10 @@ import { createBrowserRouter } from 'react-router';
 
 import { LoginPage } from '#/modules/auth';
 import { LeaseDetails } from '#/modules/lease';
-import { PoliciesPage } from '#/modules/policies';
-import { PolicyDetails } from '#/modules/policies/policy-details';
-import { RentalPlanDetails } from '#/modules/rental-plan/rental-plan-details';
-import { RentalPlanList } from '#/modules/rental-plan/rental-plan-list';
-import { ROUTES } from '#/shared/constants/routes.constants';
+import { PoliciesListPage } from '#/modules/policies';
+import { PolicyDetailsPage } from '#/modules/policies/policy-details';
+import { RentalPlanDetailsPage } from '#/modules/rental-plan/rental-plan-details';
+import { RentalPlanListPage } from '#/modules/rental-plan/rental-plan-list';
 
 import App from '../App';
 import { AddressDetails as AddressDetailsPage } from '../modules/address/address-details';
@@ -20,7 +19,7 @@ export const router = createBrowserRouter([
     Component: App,
     children: [
       {
-        path: ROUTES.auth.login,
+        path: 'auth/login',
         Component: LoginPage,
       },
       {
@@ -32,28 +31,28 @@ export const router = createBrowserRouter([
             Component: CompaniesPage,
           },
           {
-            path: '/units/details/:id',
+            path: '/units/:id',
             Component: UnitDetailsPage,
           },
           {
-            path: '/properties/details/:id',
+            path: '/properties/:id',
             Component: PropertyDetailsPage,
           },
           {
-            path: '/addresses/details/:id',
+            path: '/addresses/:id',
             Component: AddressDetailsPage,
           },
           {
-            path: '/rental-plan/details/:id',
-            Component: RentalPlanDetails,
+            path: '/rental-plans',
+            Component: RentalPlanListPage,
           },
           {
-            path: '/rental-plan/list',
-            Component: RentalPlanList,
+            path: '/rental-plans/:id',
+            Component: RentalPlanDetailsPage,
           },
           {
             path: '/policies',
-            Component: PoliciesPage,
+            Component: PoliciesListPage,
           },
           {
             path: '/leases/details/:id',
@@ -61,7 +60,7 @@ export const router = createBrowserRouter([
           },
           {
             path: '/policies/:id',
-            Component: PolicyDetails,
+            Component: PolicyDetailsPage,
           },
         ],
       },

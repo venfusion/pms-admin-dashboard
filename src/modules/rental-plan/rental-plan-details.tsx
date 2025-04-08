@@ -18,7 +18,7 @@ import {
 import { useMemo, useState } from 'react';
 import { useParams } from 'react-router';
 
-export const RentalPlanDetails = () => {
+export const RentalPlanDetailsPage = () => {
   const { id } = useParams();
   const [checked, setChecked] = useState(false);
   const rentalPlanData = {

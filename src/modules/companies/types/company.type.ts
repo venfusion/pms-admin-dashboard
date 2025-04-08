@@ -4,7 +4,7 @@ export type Company = {
   marketingName: string;
   logo: string;
   description: string;
-  createdAt?: Date;
-  updatedAt?: Date;
-  deletedAt?: Date;
+  createdAt?: string;
+  updatedAt?: string;
+  deletedAt?: string;
 };

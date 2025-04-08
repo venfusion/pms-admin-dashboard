@@ -7,7 +7,7 @@ import { ROUTES } from '#/shared/constants/routes.constants';
 
 import App from '../App';
 import { AddressDetails as AddressDetailsPage } from '../modules/address/address-details';
-import { CompaniesPage } from '../modules/companies';
+import { CompaniesListPage } from '../modules/companies';
 import { PoliciesPage } from '../modules/policies';
 import { PropertyDetails as PropertyDetailsPage } from '../modules/properties/property-details';
 import { UnitDetailsPage } from '../modules/units/unit-details';
@@ -26,8 +26,8 @@ export const router = createBrowserRouter([
         Component: Layout,
         children: [
           {
-            path: '/companies',
-            Component: CompaniesPage,
+            path: '/companies/list',
+            Component: CompaniesListPage,
           },
           {
             path: '/units/details/:id',

@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import { LoginForm } from './components/login-form';
-import { style } from './styles/style';
+import { LoginForm } from '../components/login-form';
+import { style } from '../styles/style';
 
 export function LoginPage() {
   return (

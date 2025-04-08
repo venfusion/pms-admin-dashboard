@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 
-import { LoginPage } from '#/modules/auth';
+import { LoginPage, RegisterPage } from '#/modules/auth/pages';
 import { LeaseDetails } from '#/modules/lease';
 import { RentalPlanDetails } from '#/modules/rental-plan/rental-plan-details';
 import { RentalPlanList } from '#/modules/rental-plan/rental-plan-list';
@@ -21,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: ROUTES.auth.login,
         Component: LoginPage,
+      },
+      {
+        path: ROUTES.auth.register,
+        Component: RegisterPage,
       },
       {
         path: '/',

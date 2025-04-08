@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
 
-export function CompaniesPage() {
+export function Companies() {
   return <Typography>Welcome to the Toolpad companies!</Typography>;
 }

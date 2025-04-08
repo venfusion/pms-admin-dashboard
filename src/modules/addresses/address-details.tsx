@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 
-export const AddressDetailsPage = () => {
+export const AddressDetails = () => {
   const propertyData = {
     name: 'Sunset Apartments',
     address: {

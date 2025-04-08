@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 
 import { Table } from '#/shared/components/table/table';
 
-export const RentalPlanListPage = () => {
+export const RentalPlansList = () => {
   const columns: GridColDef[] = useMemo(
     () => [
       { field: 'name', headerName: 'Name', flex: 1 },

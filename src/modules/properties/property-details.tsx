@@ -5,7 +5,7 @@ import { Box, Button, Card, CardContent, Divider, Grid, Typography } from '@mui/
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import { useParams } from 'react-router';
 
-export const PropertyDetailsPage = () => {
+export const PropertyDetails = () => {
   const { id } = useParams();
 
   const propertyData = {

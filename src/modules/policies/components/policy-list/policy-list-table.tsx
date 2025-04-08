@@ -7,8 +7,8 @@ import { Table } from '#/shared/components/table/table';
 import { formatCurrency } from '#/shared/utils/format-currency.util';
 import { formatDate } from '#/shared/utils/format-date.util';
 
-import { usePolicies } from '../hooks/queries/use-policies';
-import { Policy, PolicyPaymentType, PolicyStatus } from '../types/policy.type';
+import { usePolicies } from '../../hooks/queries/use-policies';
+import { Policy, PolicyPaymentType, PolicyStatus } from '../../types/policy.type';
 import { PolicyListTableToolbar } from './policy-list-table-toolbar';
 
 type ChipColor = ChipProps['color'];

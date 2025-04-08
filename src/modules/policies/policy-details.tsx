@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid2 as Grid } from '@mui/material';
 
 import { CoverageAdditionalCard } from './components/policy-details/coverage-additional-card';
 import { CoveragePrimaryCard } from './components/policy-details/coverage-primary-card';
@@ -15,7 +15,7 @@ export function PolicyDetails() {
         userFullName='John Doe'
       />
       <Grid container spacing={3} sx={{ p: 2 }}>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <PolicyOverview
             policyholder='John Doe'
             unit='3B'
@@ -30,10 +30,10 @@ export function PolicyDetails() {
             deductible={500}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid size={{ xs: 12, md: 6 }}>
           <CoveragePrimaryCard />
         </Grid>
-        <Grid item xs={12}>
+        <Grid size={{ xs: 12 }}>
           <CoverageAdditionalCard />
         </Grid>
       </Grid>

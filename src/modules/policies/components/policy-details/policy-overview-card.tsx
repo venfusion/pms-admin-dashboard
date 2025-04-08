@@ -1,5 +1,5 @@
 import { Apartment, CalendarToday, LocationOn, Person } from '@mui/icons-material';
-import { Box, Card, CardContent, Chip, Divider, Grid, Typography } from '@mui/material';
+import { Box, Card, CardContent, Chip, Divider, Grid2 as Grid, Typography } from '@mui/material';
 
 import { formatCurrency } from '#/shared/utils/format-currency.util';
 
@@ -76,13 +76,13 @@ export function PolicyOverview({
         </Box>
 
         <Grid container spacing={2} sx={policyOverviewStyles.gridContainer}>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <Typography variant='body2' sx={policyOverviewStyles.sectionTitle} fontWeight='medium'>
               Status
             </Typography>
             <Chip label={status} color='success' size='small' />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <Typography variant='body2' sx={policyOverviewStyles.sectionTitle} fontWeight='medium'>
               Payment Type
             </Typography>
@@ -91,7 +91,7 @@ export function PolicyOverview({
         </Grid>
 
         <Grid container spacing={2} sx={policyOverviewStyles.gridContainer}>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <Box>
               <Typography
                 variant='body2'
@@ -106,7 +106,7 @@ export function PolicyOverview({
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <Box>
               <Typography
                 variant='body2'
@@ -121,7 +121,7 @@ export function PolicyOverview({
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={12} sm={12}>
+          <Grid size={{ xs: 12, sm: 12 }}>
             <Box>
               <Typography
                 variant='body2'
@@ -139,7 +139,7 @@ export function PolicyOverview({
         </Grid>
 
         <Grid container spacing={2} sx={policyOverviewStyles.gridContainer}>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <Typography variant='body2' sx={policyOverviewStyles.sectionTitle} fontWeight='medium'>
               Price
             </Typography>
@@ -147,7 +147,7 @@ export function PolicyOverview({
               {formatCurrency(price)}
             </Typography>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <Typography variant='body2' sx={policyOverviewStyles.sectionTitle} fontWeight='medium'>
               Deductible
             </Typography>

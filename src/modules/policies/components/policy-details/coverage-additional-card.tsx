@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
+import { Box, Card, CardContent, Grid2 as Grid, Typography } from '@mui/material';
 
 import { policyDetailsStyles } from '../../styles/policy-details.style';
 import { Policy } from '../../types/policy.type';
@@ -24,42 +24,42 @@ export function CoverageAdditionalCard({ data }: CoverageAdditionalCardProps) {
 
         <Box sx={policyDetailsStyles.section}>
           <Grid container spacing={2}>
-            <Grid item xs={12} lg={6}>
+            <Grid size={{ xs: 12, lg: 6 }}>
               <CoverageAdditionalItem
                 title='Scheduled Personal Property'
                 subtitle='Coverage for high-value items'
                 price={10000}
               />
             </Grid>
-            <Grid item xs={12} lg={6}>
+            <Grid size={{ xs: 12, lg: 6 }}>
               <CoverageAdditionalItem
                 title='Identity Theft'
                 subtitle='Coverage for identity theft expenses'
                 price={400}
               />
             </Grid>
-            <Grid item xs={12} lg={6}>
+            <Grid size={{ xs: 12, lg: 6 }}>
               <CoverageAdditionalItem
                 title='Water Backup'
                 subtitle='Coverage for water damage'
                 price={50}
               />
             </Grid>
-            <Grid item xs={12} lg={6}>
+            <Grid size={{ xs: 12, lg: 6 }}>
               <CoverageAdditionalItem
                 title='Pet Liability'
                 subtitle='Coverage for pet-related incidents'
                 price={150.0}
               />
             </Grid>
-            <Grid item xs={12} lg={6}>
+            <Grid size={{ xs: 12, lg: 6 }}>
               <CoverageAdditionalItem
                 title='Earthquake'
                 subtitle='Coverage for earthquake damage'
                 price={200}
               />
             </Grid>
-            <Grid item xs={12} lg={6}>
+            <Grid size={{ xs: 12, lg: 6 }}>
               <CoverageAdditionalItem
                 title='Flood'
                 subtitle='Coverage for flood damage'

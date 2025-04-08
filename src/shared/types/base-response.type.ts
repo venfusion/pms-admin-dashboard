@@ -4,6 +4,6 @@ export type BaseResponse<T> = {
   success: boolean;
   data: T;
   message: string;
-  timestamp: Date;
+  timestamp: string;
   metadata?: Metadata;
 };

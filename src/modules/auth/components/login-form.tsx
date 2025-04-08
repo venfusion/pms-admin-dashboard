@@ -11,7 +11,8 @@ import { MuiStylesObject } from '#/shared/types/mui-styles.type';
 
 import { type LoginFormData, loginSchema } from '../schemas/login-form.schema';
 import { style } from '../styles/style';
-import { LoginButton } from './login-button';
+import { SubmitButton } from './submit-button';
+
 const styles = {
   passwordContainer: { display: 'flex', flexDirection: 'column', justifyContent: 'right' },
 } satisfies MuiStylesObject;
@@ -71,7 +72,7 @@ export function LoginForm() {
             helperText={errors.password?.message}
           />
         </Box>
-        <LoginButton />
+        <SubmitButton context={'login'} />
       </form>
     </Stack>
   );

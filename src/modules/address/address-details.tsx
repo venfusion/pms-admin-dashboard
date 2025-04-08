@@ -14,14 +14,8 @@ import {
   Typography,
 } from '@mui/material';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
-import { useParams } from 'react-router';
 
 export const AddressDetails = () => {
-  const { id } = useParams();
-
-  console.log(id);
-
-  // Mock data based on the screenshot - replace with actual API call later
   const propertyData = {
     name: 'Sunset Apartments',
     address: {

@@ -112,15 +112,13 @@ export function Table<T extends object[]>({
       pagination
       pageSizeOptions={[5, 10, 25, 50, 100]}
       slots={{
-        toolbar: bulkActions
-          ? () => (
-              <TableToolbar
-                selectedRows={selectedRows}
-                bulkActions={bulkActions}
-                toolbar={customToolbar}
-              />
-            )
-          : null,
+        toolbar: () => (
+          <TableToolbar
+            selectedRows={selectedRows}
+            bulkActions={bulkActions}
+            toolbar={customToolbar}
+          />
+        ),
       }}
       slotProps={{
         toolbar: { printOptions: { disableToolbarButton: true } },

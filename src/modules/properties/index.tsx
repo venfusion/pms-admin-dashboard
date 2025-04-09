@@ -7,7 +7,7 @@ import { Table } from '#/shared/components/table/table';
 
 import { useProperties } from './hooks/use-properties';
 
-export function PropertiesPage() {
+export function PropertiesList() {
   const { data } = useProperties();
 
   const columns: GridColDef[] = useMemo(

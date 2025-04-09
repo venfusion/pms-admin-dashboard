@@ -5,7 +5,7 @@ import { RentalPlanPanel } from './components/rental-plan';
 import { UnitInformationPanel } from './components/unit-information.component';
 import { UnitDetailsStyles as styles } from './styles/units-page.style';
 
-export function UnitDetailsPage() {
+export function UnitDetails() {
   return (
     <Box sx={styles.container}>
       <Box sx={styles.header}>

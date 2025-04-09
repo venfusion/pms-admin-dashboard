@@ -6,6 +6,7 @@ import { Outlet } from 'react-router';
 
 import { QueryClientConfig } from './shared/configs/query-client.config';
 import { BRANDING, NAVIGATION } from './shared/constants';
+import { ThemeProvider } from './theme/theme-provider';
 
 const queryClient = new QueryClient(QueryClientConfig);
 
@@ -14,9 +15,11 @@ export default function App() {
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         {import.meta.env.DEV && <ReactQueryDevtools />}
-        <ReactRouterAppProvider navigation={NAVIGATION} branding={BRANDING}>
-          <Outlet />
-        </ReactRouterAppProvider>
+        <ThemeProvider>
+          <ReactRouterAppProvider navigation={NAVIGATION} branding={BRANDING}>
+            <Outlet />
+          </ReactRouterAppProvider>
+        </ThemeProvider>
       </QueryClientProvider>
     </HelmetProvider>
   );

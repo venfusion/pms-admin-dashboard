@@ -14,7 +14,7 @@ import { useState } from 'react';
 
 import { capitalize } from '#/shared/utils/capitalize.util.ts';
 
-import { policyListTableToolbarStyles } from '../styles/policy-list-table-toolbar.style.ts';
+import { policyListTableToolbarStyles } from '../../styles/policy-list-table-toolbar.style.ts';
 
 type FilterOption = {
   label: string;
@@ -42,7 +42,6 @@ export function PolicyListTableToolbar() {
     const {
       target: { value },
     } = event;
-    console.log(value);
     setStatusFilter(typeof value === 'string' ? value.split(',') : value);
   };
 

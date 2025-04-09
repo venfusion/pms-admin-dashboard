@@ -3,7 +3,7 @@ import { ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 
 import { darkTheme, lightTheme } from './theme';
-import { ThemeContext } from './themeContext';
+import { ThemeContext } from './theme-context';
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [darkMode, setDarkMode] = useState(false);

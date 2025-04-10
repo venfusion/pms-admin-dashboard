@@ -1,5 +1,10 @@
 import { createBrowserRouter } from 'react-router';
 
+import { LoginPage, RegisterPage } from '#/modules/auth/pages';
+import { LeaseDetails } from '#/modules/lease';
+import { RentalPlanDetails } from '#/modules/rental-plan/rental-plan-details';
+import { RentalPlanList } from '#/modules/rental-plan/rental-plan-list';
+import { ROUTES } from '#/shared/constants/routes.constants';
 import { composeModuleRoutes, lazyRoute } from '#/shared/utils/router.util';
 
 import App from '../App';

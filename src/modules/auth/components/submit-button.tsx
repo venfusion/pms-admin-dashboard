@@ -12,10 +12,10 @@ const styles = {
   },
 } satisfies MuiStylesObject;
 
-export function LoginButton() {
+export function SubmitButton({ context }: { context: string }) {
   return (
     <Button type='submit' variant='contained' size='large' fullWidth={true} sx={styles.loginButton}>
-      Login
+      {context === 'login' ? 'Login' : 'Register'}
     </Button>
   );
 }

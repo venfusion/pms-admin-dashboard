@@ -5,7 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: 'pms-admin-dashboard',
+  base: '/pms-admin-dashboard',
   plugins: [
     react(),
     checker({

@@ -91,9 +91,12 @@ const dashboardRoutes = [
   },
 ];
 
-export const router = createBrowserRouter([
-  {
-    Component: App,
-    children: composeModuleRoutes(authRoutes, dashboardRoutes),
-  },
-]);
+export const router = createBrowserRouter(
+  [
+    {
+      Component: App,
+      children: composeModuleRoutes(authRoutes, dashboardRoutes),
+    },
+  ],
+  { basename: '/pms-admin-dashboard/' },
+);

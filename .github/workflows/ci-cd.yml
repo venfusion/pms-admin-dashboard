@@ -62,5 +62,5 @@ jobs:
 
       - name: Push main branch to the mirror repo
         run: |
-          git remote add mirror https://x-access-token:${{ secrets.MIRROR_REPO_PAT }}@github.com/MdRasulov/pms-admin-dashboard.git
+          git remote add mirror https://x-access-token:${{ secrets.MIRROR_REPO_PAT }}@github.com/MdRasulov/pms-admin-dashboard
           git push mirror main

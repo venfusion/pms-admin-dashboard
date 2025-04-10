@@ -179,7 +179,7 @@ export function AddressesListPage() {
     });
   }, []);
 
-  const getMockCompanies = useCallback(() => {
+  const getMockAddresses = useCallback(() => {
     try {
       // In prod, this would be an API call
       const filtered = applyFilters(SAMPLE_DATA, filterModel.items);
@@ -196,8 +196,8 @@ export function AddressesListPage() {
   }, [filterModel.items, sortModel, paginationModel, applyFilters, applySorting, applyPagination]);
 
   useEffect(() => {
-    getMockCompanies();
-  }, [getMockCompanies]);
+    getMockAddresses();
+  }, [getMockAddresses]);
 
   return (
     <Box>

@@ -1,0 +1,41 @@
+name: CD
+
+on:
+  workflow_run:
+    workflows: ['CI']
+    types:
+      - completed
+
+jobs:
+  sync-main-branch:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'  # Ensure PR was merged into 'main'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code from main
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Setup Git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push main branch to the mirror repo
+        run: |
+          git remote add mirror https://x-access-token:${{ secrets.MIRROR_REPO_PAT }}@github.com/MdRasulov/pms-admin-dashboard.git
+          git push mirror main

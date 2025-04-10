@@ -53,5 +53,27 @@ jobs:
         env:
           GIT_PAT: ${{ secrets.MIRROR_REPO_PAT }}
         run: |
-          git remote add mirror "https://x-access-token:${GIT_PAT}@github.com/MdRasulov/pms-admin-dashboard.git"
-          git push mirror main --force
+          echo "Setting up Git identity..."
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          echo "Attempting git push directly with URL and high verbosity..."
+          if [ -z "${GIT_PAT}" ]; then
+            echo "Error: GIT_PAT environment variable is not set!"
+            exit 1
+          fi
+
+          # Enable verbose Git logging
+          export GIT_CURL_VERBOSE=1
+          export GIT_TRACE=1
+          
+          # Construct the URL (ensure no trailing slash)
+          TARGET_REPO_URL="https://x-access-token:${GIT_PAT}@github.com/MdRasulov/pms-admin-dashboard.git"
+          
+          echo "Pushing to target repository: github.com/MdRasulov/pms-admin-dashboard.git" # Log target without token
+          
+          # Push directly using the full URL
+          # Syntax: git push <repository> <local_ref>:<remote_ref> --force
+          git push "${TARGET_REPO_URL}" main:main --force
+          
+          echo "Git push command executed."

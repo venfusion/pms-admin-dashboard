@@ -53,5 +53,5 @@ jobs:
         env:
           GIT_PAT: ${{ secrets.MIRROR_REPO_PAT }}
         run: |
-          git remote add mirror "https://x-access-token:${MIRROR_REPO_PAT}@github.com/MdRasulov/pms-admin-dashboard.git"
+          git remote add mirror "https://x-access-token:${GIT_PAT}@github.com/MdRasulov/pms-admin-dashboard.git"
           git push mirror main --force

@@ -11,7 +11,7 @@ type CoverageAdditionalCardProps = {
 
 // right now i am using hardcoded prices but will use prices from data object when integrating
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function CoverageAdditionalCard({ data }: CoverageAdditionalCardProps) {
+export function CoverageAdditionalCard({ data: _data }: CoverageAdditionalCardProps) {
   return (
     <Card sx={policyDetailsStyles.card}>
       <CardContent sx={policyDetailsStyles.cardContent}>

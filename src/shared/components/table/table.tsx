@@ -19,7 +19,7 @@ type TableBulkActions = Array<{
   handler: (ids: GridRowSelectionModel) => void;
 }>;
 
-type TableAction = {
+export type TableAction = {
   label: string;
   handler: (id: GridRowId) => void;
   icon?: React.ReactElement;

@@ -34,6 +34,10 @@ const { AddressesListPage } = lazyRoute(
   () => import('#/modules/addresses/components/addresses-list'),
   'AddressesListPage',
 );
+const { CompaniesListPage } = lazyRoute(
+  () => import('#/modules/companies/components/companies-list'),
+  'CompaniesListPage',
+);
 
 const authRoutes = [
   {
@@ -86,6 +90,10 @@ const dashboardRoutes = [
       {
         path: '/addresses/list',
         element: <AddressesListPage />,
+      },
+      {
+        path: '/companies/list',
+        element: <CompaniesListPage />,
       },
     ],
   },

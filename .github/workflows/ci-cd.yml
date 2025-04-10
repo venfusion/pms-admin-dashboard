@@ -1,12 +1,5 @@
 name: CI/CD
 
-permissions:
-  actions: write
-  checks: write
-  pull-requests: write
-  contents: write
-  packages: write
-
 on:
   push:
     branches:

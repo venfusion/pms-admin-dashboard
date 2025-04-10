@@ -30,6 +30,10 @@ const { PolicyDetails } = lazyRoute(
 );
 const { LeaseDetails } = lazyRoute(() => import('#/modules/leases'), 'LeaseDetails');
 const { Layout } = lazyRoute(() => import('#/shared/layouts/dashboard'), 'Layout');
+const { CompaniesListPage } = lazyRoute(
+  () => import('#/modules/companies/components/companies-list'),
+  'CompaniesListPage',
+);
 
 const authRoutes = [
   {
@@ -78,6 +82,10 @@ const dashboardRoutes = [
       {
         path: '/policies/:id',
         element: <PolicyDetails />,
+      },
+      {
+        path: '/companies/list',
+        element: <CompaniesListPage />,
       },
     ],
   },

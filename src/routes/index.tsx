@@ -12,7 +12,7 @@ const { PropertyDetails } = lazyRoute(
   'PropertyDetails',
 );
 const { AddressDetails } = lazyRoute(
-  () => import('#/modules/addresses/address-details'),
+  () => import('#/modules/addresses/components/address-details'),
   'AddressDetails',
 );
 const { RentalPlansList: RentalPlanList } = lazyRoute(
@@ -30,6 +30,10 @@ const { PolicyDetails } = lazyRoute(
 );
 const { LeaseDetails } = lazyRoute(() => import('#/modules/leases'), 'LeaseDetails');
 const { Layout } = lazyRoute(() => import('#/shared/layouts/dashboard'), 'Layout');
+const { AddressesListPage } = lazyRoute(
+  () => import('#/modules/addresses/components/addresses-list'),
+  'AddressesListPage',
+);
 const { CompaniesListPage } = lazyRoute(
   () => import('#/modules/companies/components/companies-list'),
   'CompaniesListPage',
@@ -82,6 +86,10 @@ const dashboardRoutes = [
       {
         path: '/policies/:id',
         element: <PolicyDetails />,
+      },
+      {
+        path: '/addresses/list',
+        element: <AddressesListPage />,
       },
       {
         path: '/companies/list',

@@ -4,7 +4,7 @@ import { ReactRouterAppProvider } from '@toolpad/core/react-router';
 import { HelmetProvider } from 'react-helmet-async';
 import { Outlet } from 'react-router';
 
-import { QueryClientConfig } from './shared/config/query-client.config';
+import { QueryClientConfig } from './shared/configs/query-client.config';
 import { BRANDING, NAVIGATION } from './shared/constants';
 import { ThemeProvider } from './theme/theme-provider';
 

@@ -4,4 +4,7 @@ export const ROUTES = {
     login: '/auth/login',
     forgotPassword: '/forgot-password',
   },
+  properties: {
+    list: '/properties',
+  },
 };

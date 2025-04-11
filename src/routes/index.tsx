@@ -7,8 +7,12 @@ import App from '../App';
 const { LoginPage } = lazyRoute(() => import('#/modules/auth'), 'LoginPage');
 const { Companies } = lazyRoute(() => import('#/modules/companies'), 'Companies');
 const { UnitDetails } = lazyRoute(() => import('#/modules/units/unit-details'), 'UnitDetails');
+const { PropertiesListTable } = lazyRoute(
+  () => import('#/modules/properties/components/property-list/property-list-table'),
+  'PropertiesListTable',
+);
 const { PropertyDetails } = lazyRoute(
-  () => import('#/modules/properties/property-details'),
+  () => import('#/modules/properties/components/propety-details/property-details'),
   'PropertyDetails',
 );
 const { AddressDetails } = lazyRoute(
@@ -57,6 +61,10 @@ const dashboardRoutes = [
       {
         path: '/units/:id',
         element: <UnitDetails />,
+      },
+      {
+        path: '/properties',
+        element: <PropertiesListTable />,
       },
       {
         path: '/properties/:id',

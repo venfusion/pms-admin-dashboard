@@ -5,7 +5,10 @@ import { composeModuleRoutes, lazyRoute } from '#/shared/utils/router.util';
 import App from '../App';
 
 const { LoginPage } = lazyRoute(() => import('#/modules/auth'), 'LoginPage');
-const { Companies } = lazyRoute(() => import('#/modules/companies'), 'Companies');
+const { CompaniesDetails } = lazyRoute(
+  () => import('#/modules/companies/company-details'),
+  'CompaniesDetails',
+);
 const { UnitDetails } = lazyRoute(() => import('#/modules/units/unit-details'), 'UnitDetails');
 const { PropertyDetails } = lazyRoute(
   () => import('#/modules/properties/property-details'),
@@ -45,7 +48,7 @@ const dashboardRoutes = [
     children: [
       {
         path: '*',
-        element: <Companies />,
+        element: <CompaniesDetails />,
       },
       {
         path: '/units/:id',

@@ -90,6 +90,16 @@ export const policyListFilterFormSchema = z.object({
       errorMap: () => ({ message: 'Please select a valid payment type' }),
     })
     .nullish(),
+  sortBy: z
+    .enum(['createdAt', 'updatedAt', 'effectiveDate', 'expiryDate'], {
+      errorMap: () => ({ message: 'Please select a valid sort option' }),
+    })
+    .nullish(),
+  orderBy: z
+    .enum(['asc', 'desc'], {
+      errorMap: () => ({ message: 'Please select a valid order' }),
+    })
+    .nullish(),
 });
 
 export type PolicyListFilterFormSchema = z.infer<typeof policyListFilterFormSchema>;

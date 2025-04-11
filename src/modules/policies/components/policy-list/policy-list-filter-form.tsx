@@ -51,6 +51,8 @@ export function PolicyListFilterForm({ handleClose }: PolicyListFilterFormProps)
       effectiveEndDate: null,
       expiryStartDate: null,
       expiryEndDate: null,
+      sortBy: 'createdAt',
+      orderBy: 'desc',
       status: [],
     },
   });
@@ -381,6 +383,42 @@ export function PolicyListFilterForm({ handleClose }: PolicyListFilterFormProps)
                   />
                 );
               }}
+            />
+          </Box>
+        </Box>
+        <Box width='100%' mb={1}>
+          <Typography gutterBottom variant='subtitle2'>
+            Sort Options
+          </Typography>
+          <Box sx={{ display: 'flex', gap: 2 }}>
+            <Controller
+              name='sortBy'
+              control={control}
+              render={({ field }) => (
+                <FormControl fullWidth>
+                  <InputLabel id='sort-by-label'>Sort By</InputLabel>
+                  <Select {...field} label='Sort By' labelId='sort-by-label'>
+                    <MenuItem value='createdAt'>Creation Date</MenuItem>
+                    <MenuItem value='price'>Price</MenuItem>
+                    <MenuItem value='effectiveDate'>Effective Date</MenuItem>
+                    <MenuItem value='expiryDate'>Expiry Date</MenuItem>
+                  </Select>
+                </FormControl>
+              )}
+            />
+            <Controller
+              name='orderBy'
+              control={control}
+              defaultValue='desc'
+              render={({ field }) => (
+                <FormControl fullWidth>
+                  <InputLabel id='order-by-label'>Order</InputLabel>
+                  <Select {...field} label='Order' labelId='order-by-label'>
+                    <MenuItem value='asc'>Ascending</MenuItem>
+                    <MenuItem value='desc'>Descending</MenuItem>
+                  </Select>
+                </FormControl>
+              )}
             />
           </Box>
         </Box>

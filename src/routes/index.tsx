@@ -30,11 +30,14 @@ const { PolicyDetails } = lazyRoute(
 );
 const { LeaseDetails } = lazyRoute(() => import('#/modules/leases'), 'LeaseDetails');
 const { Layout } = lazyRoute(() => import('#/shared/layouts/dashboard'), 'Layout');
+const { LeasesListPage } = lazyRoute(
+  () => import('#/modules/leases/components/leases-list'),
+  'LeasesListPage',
+);
 const { CompaniesListPage } = lazyRoute(
   () => import('#/modules/companies/components/companies-list'),
   'CompaniesListPage',
 );
-
 const authRoutes = [
   {
     path: 'auth/login',
@@ -82,6 +85,10 @@ const dashboardRoutes = [
       {
         path: '/policies/:id',
         element: <PolicyDetails />,
+      },
+      {
+        path: '/leases/list',
+        element: <LeasesListPage />,
       },
       {
         path: '/companies/list',
